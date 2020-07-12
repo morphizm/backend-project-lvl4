@@ -47,6 +47,7 @@
     "lodash": "^4.17.19",
     "nodemon": "^2.0.4",
     "popper.js": "^1.16.1",
+    "rollbar": "^2.18.0",
     "sequelize": "^6.3.3",
     "sequelize-cli": "^6.2.0",
     "sqlite3": "^5.0.0",

@@ -10,6 +10,7 @@ import session from 'koa-generic-session';
 import flash from 'koa-flash-simple';
 import _ from 'lodash';
 import methodOverride from 'koa-methodoverride';
+import Rollbar from 'rollbar';
 
 import webpackConfig from '../webpack.config.js';
 import addRoutes from './routes';
@@ -58,6 +59,15 @@ export default () => {
     ],
   });
   pug.use(app);
+
+  const rollbar = new Rollbar({
+    accessToken: process.env.ROLLBAR_TOKEN,
+    captureUncaught: true,
+    captureUnhandledRejections: true,
+  });
+  app.on('error', (error, ctx) => {
+    rollbar.error(error, ctx.request);
+  });
 
   return app;
 };
