@@ -1,0 +1,69 @@
+{
+  "name": "task-manager",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=13"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "npx webpack -p --env production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/"
+  },
+  "author": "morphizm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/"
+  },
+  "homepage": "https://github.com/",
+  "dependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "bootstrap": "^4.5.0",
+    "css-loader": "^3.6.0",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "jquery": "^3.5.1",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-flash-simple": "0.0.3",
+    "koa-generic-session": "^2.0.4",
+    "koa-logger": "^3.2.1",
+    "koa-methodoverride": "^2.0.0",
+    "koa-pug": "^4.0.4",
+    "koa-router": "^9.1.0",
+    "koa-static": "^5.0.0",
+    "koa-webpack": "^5.3.0",
+    "lodash": "^4.17.19",
+    "nodemon": "^2.0.4",
+    "popper.js": "^1.16.1",
+    "sequelize": "^6.3.3",
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.3.0",
+    "jest-cli": "^25.3.0",
+    "jest-supertest-matchers": "0.0.2",
+    "supertest": "^4.0.2",
+    "webpack-cli": "^3.3.11"
+  }
+}
