@@ -105,7 +105,7 @@ export default () => {
   const config = dotenv.config();
   // eslint-disable-next-line no-new
   new Rollbar({
-    accessToken: config.parsed.ROLLBAR_SERVER_TOKEN,
+    accessToken: config.parsed?.ROLLBAR_SERVER_TOKEN,
     captureUncaught: true,
     captureUnhandledRejections: true,
     environment: mode,
