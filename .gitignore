@@ -1,8 +1,8 @@
-/node_modules/
+node_modules
 *.log
 dist
-.tern-port
 *.sqlite
 public/assets
-.bash_history
 .env
+build
+tmp

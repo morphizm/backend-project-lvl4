@@ -1,33 +1,34 @@
-import request from 'supertest';
-import matchers from 'jest-supertest-matchers';
+// @ts-check
 
-import app from '../app/index.js';
+import {
+  describe, beforeAll, it, expect,
+} from '@jest/globals';
+import app from '../server/index.js';
 
 describe('requests', () => {
   let server;
 
   beforeAll(() => {
-    expect.extend(matchers);
-  });
-
-  beforeEach(() => {
-    server = app().listen();
+    server = app();
   });
 
   it('GET 200', async () => {
-    const res = await request.agent(server)
-      .get('/');
-    expect(res).toHaveHTTPStatus(200);
+    const res = await server.inject({
+      method: 'GET',
+      url: '/',
+    });
+    expect(res.statusCode).toBe(200);
   });
 
   it('GET 404', async () => {
-    const res = await request.agent(server)
-      .get('/wrong-path');
-    expect(res).toHaveHTTPStatus(404);
+    const res = await server.inject({
+      method: 'GET',
+      url: '/wrong-path',
+    });
+    expect(res.statusCode).toBe(404);
   });
 
-  afterEach((done) => {
+  afterAll(() => {
     server.close();
-    done();
   });
 });
