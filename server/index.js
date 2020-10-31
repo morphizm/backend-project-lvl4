@@ -13,8 +13,10 @@ import fastifyMethodOverride from 'fastify-method-override';
 import fastifyObjectionjs from 'fastify-objectionjs';
 import Pug from 'pug';
 import i18next from 'i18next';
-import ru from './locales/ru.js';
+import Rollbar from 'rollbar';
+
 import webpackConfig from '../webpack.config.babel.js';
+import resources from './locales/index.js';
 
 import addRoutes from './routes/index.js';
 import getHelpers from './helpers/index.js';
@@ -63,9 +65,7 @@ const setupLocalization = () => {
       lng: 'ru',
       fallbackLng: 'en',
       debug: isDevelopment,
-      resources: {
-        ru,
-      },
+      resources,
     });
 };
 
@@ -101,6 +101,14 @@ const registerPlugins = (app) => {
 };
 
 export default () => {
+  // eslint-disable-next-line no-new
+  new Rollbar({
+    accessToken: process.env.ROLLBAR_SERVER_TOKEN,
+    captureUncaught: true,
+    captureUnhandledRejections: true,
+    environment: mode,
+  });
+
   const app = fastify({
     logger: {
       prettyPrint: isDevelopment,
