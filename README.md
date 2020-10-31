@@ -3,7 +3,7 @@
 [![Node CI](https://github.com/morphizm/backend-project-lvl4/workflows/ci/badge.svg)](https://github.com/morphizm/backend-project-lvl4/actions)
 
 ## Application
-Go to -- [https://mighty-tundra-82711.herokuapp.com/](https://mighty-tundra-82711.herokuapp.com/)
+Go to -- [https://spooky-asylum-19916.herokuapp.com](https://spooky-asylum-19916.herokuapp.com)
 
 ## Setup
 

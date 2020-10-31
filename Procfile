@@ -1,2 +1,2 @@
-web: make start-backend
-frontend: make start-frontend
+web: node dist/server/bin/server.js
+frontend: npx webpack serve
