@@ -14,6 +14,7 @@ import fastifyObjectionjs from 'fastify-objectionjs';
 import Pug from 'pug';
 import i18next from 'i18next';
 import Rollbar from 'rollbar';
+import dotenv from 'dotenv';
 
 import webpackConfig from '../webpack.config.babel.js';
 import resources from './locales/index.js';
@@ -101,9 +102,10 @@ const registerPlugins = (app) => {
 };
 
 export default () => {
+  const config = dotenv.config();
   // eslint-disable-next-line no-new
   new Rollbar({
-    accessToken: process.env.ROLLBAR_SERVER_TOKEN,
+    accessToken: config.parsed.ROLLBAR_SERVER_TOKEN,
     captureUncaught: true,
     captureUnhandledRejections: true,
     environment: mode,
